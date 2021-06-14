@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googlesign/homepage.dart';
+import 'package:googlesign/share.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({Key? key}) : super(key: key);
@@ -29,6 +30,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
       // ignore: unnecessary_null_comparison
       if (result != null) {
+        Shared.saveLoginSharedPreference(true);
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => HomePage()));
       }
